@@ -47,7 +47,7 @@ const handleEdit = (id) => {
     <h1>Todo List App</h1>
     <form className="todoform" onSubmit={handlesubmit}>
       <input type='text' value={todo} onChange={(e) => settodo(e.target.value)}></input>
-      <button type="submit">{editid ? "Edit" : "Go"}</button>
+      <button type="submit">{editid ? "EDIT" : "ADD"}</button>
       </form> 
       <ul className="alltodos">
         {todos.map((t) => (
