@@ -1,26 +1,47 @@
+* {
+  box-sizing: border-box;
+}
 .App{
-justify-content: center;
-min-height: 100vh;
-display: flex;
-align-items: center;
-background-color: rgb(43, 45, 45);
+
+  height: 100vh;          /* FIXED */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(91, 93, 93);
 
 }
 
-.container{
+.title {
   display: flex;
-  min-height: 80vh;
-  height: 100%;
-  
-  border: 1px solid grey;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.title-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+.container{
+ 
+  height: 80vh;           /* FIXED */
+  width: 500px;
+  min-height: auto;
+  padding: 20px;
+text-align: center;
+  display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 30px;
-  font-size: 18px;
+
+  border: 1px solid rgb(168, 166, 166);
   color: white;
 }
 .todoform{
   width: 450px;
+  gap: 10px;
   display: flex;
   justify-content: space-around;
 }
@@ -30,26 +51,86 @@ padding: 10px;
 border-radius: 20px;
 border: none;
 }
-button{
-border-radius: 10px;
-border: none;
-padding: 10px;
-margin: 0 5px;
+
+.alltodos {
+  
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+
+  flex: 1;                /* takes remaining space */
+  overflow-y: auto;       /* scroll here */
+    max-height: 60vh;
+
 }
-.alltodos{
-list-style: none;
-margin:0;
-padding: 0;
+
+.singletodo {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+
+  border-radius: 8px;
+  color: black;
+
+  /* REMOVE wrap */
+  flex-wrap: nowrap;
+   flex-shrink: 0;         /* IMPORTANT */
+
 }
-.singletodo{
-border-radius: 50px;
-margin: 10px 0;
-background-color: rgb(86, 88, 88);
-padding: 10px 10px;
-display: flex;
-width: 400px;
-align-items: center;
+
+.todotext {
+   font-size: 16px;
+  flex: 1;
+  text-align: left;
+  font-weight: 500;
+  word-break: break-word;
 }
-.todotext{
-  flex:1;
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
+button {
+   padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgb(247, 243, 243);
+}
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.alltodos::-webkit-scrollbar {
+  width: 6px;
+}
+.alltodos::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .todoform {
+    flex-direction: column;
+  }
+
+  input, button {
+    width: 100%;
+  }
+}
+
+
