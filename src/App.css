@@ -53,16 +53,17 @@ text-align: center;
 
   width: 100%;
   max-width: 500px;   /* adjust as you like */
-  margin: 10px auto;
-  /*width: 450px;*/
+  /*margin: 10px auto;
+  width: 450px;*/
   gap: 10px;
   display: flex;
   justify-content: space-around;
 }
 input{
-width: 80%;
+  margin-left: 0;
+width: 90%;
 padding: 10px;
-border-radius: 20px;
+border-radius: 10px;
 border: none;
 }
 
@@ -83,7 +84,7 @@ border: none;
 
 .singletodo {
   width: 100%;
-  max-width: 100%;
+  max-width: 500px;
   
   box-sizing: border-box;
   
@@ -92,11 +93,11 @@ transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 1px;
 animation: slideIn 0.4s ease;
 
-  padding: 12px 15px;
-  margin: 10px 0;
+  padding: 10px 10px;
+  margin: 1px 0;
 
   border-radius: 8px;
   color: black;
@@ -106,9 +107,8 @@ animation: slideIn 0.4s ease;
    flex-shrink: 0;         /* IMPORTANT */
 
 }
-.singletodo:hover{
-  transform: scale(1.05);
-}
+
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -170,6 +170,33 @@ button:hover {
 .alltodos::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 4px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(43, 42, 42);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.edit-btn {
+  background-color: #f7faf7; /* green */
+}
+
+.delete-btn {
+  background-color: #f7faf7; /* red */
 }
 
 @media (max-width: 600px) {

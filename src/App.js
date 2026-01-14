@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./App.css";
 import todoIcon from './Assets/list-icon.png';
-
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const getRandomLightColor = () => {
   const r = Math.floor(Math.random() * 156 + 100);
@@ -95,8 +95,8 @@ const handleEdit = (id) => {
           {t.todo}</span>
          
          <div className="actions">
-    <button onClick={() => handleEdit(t.id)}>Edit</button>
-    <button onClick={() => handledelete(t.id)}>Delete</button>
+    <button className="icon-btn edit-btn" onClick={() => handleEdit(t.id)}> <FaEdit /></button>
+    <button className="icon-btn delete-btn" onClick={() => handledelete(t.id)}> <FaTrash /></button>
   </div>
       </li>))}
         
