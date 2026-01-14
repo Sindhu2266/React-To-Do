@@ -13,6 +13,7 @@ const App=()=> {
   const [todo,settodo] = useState("");
   const [todos, settodos] = useState([]);
   const [editid, setEditid] = useState(0);
+  const [deletingId, setDeletingId] = useState(null);
   
 const handlesubmit = (e) =>{
  e.preventDefault();
@@ -49,8 +50,18 @@ const updatedtodos = todos.map(t =>
 };
 
 const handledelete = (id) => {
-const deltodo = todos.filter((to) => to.id !== id);
-settodos([...deltodo]);
+setDeletingId(id);
+
+setTimeout(() => {
+    const deltodo = todos.filter((to) => to.id !== id);
+    settodos(deltodo);
+    setDeletingId(null);
+  }, 300); // must match CSS transition time
+
+
+
+/*const deltodo = todos.filter((to) => to.id !== id);
+settodos([...deltodo]);*/
 };
 
 const handleEdit = (id) => {
@@ -75,9 +86,11 @@ const handleEdit = (id) => {
 
       <ul className="alltodos">
         {todos.map((t) => (
-        <li className="singletodo"
-      key={t.id}
-      style={{ backgroundColor: t.color }}>
+
+<li className={`singletodo ${deletingId === t.id ? 'removing' : ''}`}
+  key={t.id}
+  style={{ backgroundColor: t.color }}
+>
          <span className="todotext" >
           {t.todo}</span>
          
